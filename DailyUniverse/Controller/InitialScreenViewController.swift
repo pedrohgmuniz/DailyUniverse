@@ -14,7 +14,7 @@ class InitialScreenViewController: UIViewController {
     var image: UIImage? {
         didSet { // every time a new value gets here, the code below is run
             DispatchQueue.main.async {
-                //self.contentView.cardView.imageView.image = self.image
+                self.contentView.todaysPicView.image = self.image
             }
         }
     }
@@ -40,7 +40,7 @@ class InitialScreenViewController: UIViewController {
         self.view = contentView
     }
     
-    // It would be cool to refactor this to be in a API layer/service
+    // It would be cool to refactor this to be in an API layer/service
     private func makeRequest() {
         let url = URL(string: "https://api.nasa.gov/planetary/apod?api_key=wecxoRe6g4DvX2KBDWxsCOQmtQJABHGjilEutoZB")!
         
@@ -82,7 +82,7 @@ class InitialScreenViewController: UIViewController {
                 guard let responseData = data else { return }
                 
                 let todaysPic = UIImage.init(data: responseData)
-                print(todaysPic)
+                print(todaysPic!)
                 self.image = todaysPic
             }
         )

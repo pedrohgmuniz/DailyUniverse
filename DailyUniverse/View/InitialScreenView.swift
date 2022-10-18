@@ -10,14 +10,15 @@ import UIKit
 class InitialScreenView: UIView {
     
     var didTapButton: (() -> Void)? // this is a closure
-
+    
     let savedCardsButton = UIButton()
+    let cardView = UIView()
+    let todaysPicView = UIImageView()
     
-    let cardView = UIView() //
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    
+    // The func below adds all views and does all settings ONLY ONCE, the first time the window appears
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        
         // colors and visual setup
         backgroundColor = .purple
         addViews()
@@ -25,17 +26,24 @@ class InitialScreenView: UIView {
         // views setup
         setupCardView() // calls the func declared below
         setupSavedCardsButton()
+        setupTodaysPicView()
     
         // configs
         savedCardsButton.addTarget(self, action: #selector(buttonWasTapped), for: .touchUpInside) // added a target, goes to the func, which is declared below, and the func calls the closure
     }
     
+// Use the func bwelow in place of didMoveToWindow() when I need to use some code that needs the constraints applied
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//    }
+    
     func addViews() {
         addSubview(cardView) // adds the view created to the "father view"
         addSubview(savedCardsButton)
+        addSubview(todaysPicView)
     }
 
-    // this function is for setting up the view
+    // this function is for setting up the cards view
     func setupCardView() {
         
         cardView.backgroundColor = .white
@@ -48,6 +56,22 @@ class InitialScreenView: UIView {
             cardView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
             cardView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.6)
         ])
+    }
+    
+    // This func sets up the daily picture view that'll go inside the card
+    func setupTodaysPicView(){
+
+        todaysPicView.translatesAutoresizingMaskIntoConstraints = false
+        todaysPicView.image = UIImage(systemName: "star.fill")
+        todaysPicView.layer.cornerRadius = 10
+
+        NSLayoutConstraint.activate([
+            todaysPicView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 10),
+            todaysPicView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
+            todaysPicView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10),
+            todaysPicView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10)
+        ])
+
     }
     
     // The func below configures the savedCardsButton. It has to come just after the button declaration, so that these lines of code actually run
