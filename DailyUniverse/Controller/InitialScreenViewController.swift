@@ -10,17 +10,29 @@ import Lottie
 
 class InitialScreenViewController: UIViewController {
     
-    var post: Post?
+    // Model (instance of the Model struct here in the Controller)
+    var post: Post? {
+        didSet {
+            DispatchQueue.main.async {
+                self.contentView.picTitle.text = self.post?.title ?? "" // setting defaulf "" values in case sth goes amiss
+                self.contentView.picDate.text = self.post?.date ?? ""
+                self.contentView.picExplanation.text = self.post?.explanation ?? ""
+            }
+        }
+    }
+    
     var image: UIImage? {
-        didSet { // every time a new value gets here, the code below is run
+        didSet { // Every time a new value gets here, the code below is run
             DispatchQueue.main.async {
                 self.contentView.todaysPicView.image = self.image
             }
         }
     }
     
+    // View (instance of the View here in the Controller)
     let contentView = InitialScreenView()
 
+    // Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad() // Does any additional setup after loading the view.
 
@@ -40,7 +52,7 @@ class InitialScreenViewController: UIViewController {
         self.view = contentView
     }
     
-    // It would be cool to refactor this to be in an API layer/service
+    // Refactor this to be in an API layer/service
     private func makeRequest() {
         let url = URL(string: "https://api.nasa.gov/planetary/apod?api_key=wecxoRe6g4DvX2KBDWxsCOQmtQJABHGjilEutoZB")!
         
@@ -70,7 +82,7 @@ class InitialScreenViewController: UIViewController {
         task.resume()
     }
     
-    // It would be cool to refactor this to be in a API layer/service
+    // Refactor this to be in a API layer/service
     private func makeRequestOfImage(url: URL) {
         
         let task: URLSessionDataTask = URLSession.shared.dataTask(
@@ -90,6 +102,7 @@ class InitialScreenViewController: UIViewController {
         task.resume()
     }
 
+    // Navigation function
     func goToSavedCardsScreen() {
         let secondScreen = SavedCardsScreenViewController() // creates the view
         navigationController?.pushViewController(secondScreen, animated: true) // takes care of the navigation
