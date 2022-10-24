@@ -18,6 +18,12 @@
 		1D68B21D2906C0440092A907 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B21C2906C0440092A907 /* API.swift */; };
 		1D68B21E2906C0440092A907 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B21C2906C0440092A907 /* API.swift */; };
 		1D68B21F2906C0440092A907 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B21C2906C0440092A907 /* API.swift */; };
+		1D68B2222906ECAD0092A907 /* load.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2212906ECAD0092A907 /* load.json */; };
+		1D68B2232906ECAD0092A907 /* load.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2212906ECAD0092A907 /* load.json */; };
+		1D68B2242906ECAD0092A907 /* load.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2212906ECAD0092A907 /* load.json */; };
+		1D68B2262906F5600092A907 /* starfall.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starfall.json */; };
+		1D68B2272906F5600092A907 /* starfall.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starfall.json */; };
+		1D68B2282906F5600092A907 /* starfall.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starfall.json */; };
 		1DEBCB6128FD838000FC4B02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1DEBCB6028FD838000FC4B02 /* Lottie */; };
 		1DEBCB6328FD888900FC4B02 /* nightSkyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */; };
 		1DEBCB6428FD888900FC4B02 /* nightSkyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */; };
@@ -65,6 +71,8 @@
 		1D3A72D728F481820096DF6E /* DailyUniverseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUniverseUITests.swift; sourceTree = "<group>"; };
 		1D3A72D928F481820096DF6E /* DailyUniverseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUniverseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D68B21C2906C0440092A907 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1D68B2212906ECAD0092A907 /* load.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load.json; sourceTree = "<group>"; };
+		1D68B2252906F5600092A907 /* starfall.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starfall.json; sourceTree = "<group>"; };
 		1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightSkyBackground.json; sourceTree = "<group>"; };
 		1DEBCB6628FD95EC00FC4B02 /* InitialScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenView.swift; sourceTree = "<group>"; };
 		1DEBCB6A28FD9BC200FC4B02 /* SavedCardsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardsScreenView.swift; sourceTree = "<group>"; };
@@ -128,6 +136,8 @@
 				1D3A72B628F481810096DF6E /* AppDelegate.swift */,
 				1D3A72B828F481810096DF6E /* SceneDelegate.swift */,
 				1D3A72BF28F481820096DF6E /* Assets.xcassets */,
+				1D68B2212906ECAD0092A907 /* load.json */,
+				1D68B2252906F5600092A907 /* starfall.json */,
 				1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */,
 				1D3A72C128F481820096DF6E /* LaunchScreen.storyboard */,
 				1D3A72C428F481820096DF6E /* Info.plist */,
@@ -297,8 +307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D3A72C328F481820096DF6E /* LaunchScreen.storyboard in Resources */,
+				1D68B2222906ECAD0092A907 /* load.json in Resources */,
 				1D3A72C028F481820096DF6E /* Assets.xcassets in Resources */,
 				1DEBCB6328FD888900FC4B02 /* nightSkyBackground.json in Resources */,
+				1D68B2262906F5600092A907 /* starfall.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +319,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEBCB6428FD888900FC4B02 /* nightSkyBackground.json in Resources */,
+				1D68B2232906ECAD0092A907 /* load.json in Resources */,
+				1D68B2272906F5600092A907 /* starfall.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEBCB6528FD888900FC4B02 /* nightSkyBackground.json in Resources */,
+				1D68B2242906ECAD0092A907 /* load.json in Resources */,
+				1D68B2282906F5600092A907 /* starfall.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

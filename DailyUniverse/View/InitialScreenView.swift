@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import Lottie
 
 class InitialScreenView: UIView {
     
-    var didTapButton: (() -> Void)? // This is a closure
+    let lottie: LottieAnimationView = LottieAnimationView.init(name: "starfall")
+    var didTapButton: (() -> Void)? // 💡 This is a closure
     
-    var picTitle: UILabel! = UILabel() // Does this has to be forcefully unwrapped? What is this anyway?! 🤔
+    // 💡 This takes care of the gradient background
+    let gradientLayer = CAGradientLayer()
+//    gradientLayer.frame: view.bounds
+//    gradientLayer.colors: []
+    
+    var picTitle: UILabel! = UILabel() // 🤔 Does this has to be forcefully unwrapped? What is this anyway?!
     var picDate: UILabel! = UILabel()
     var picExplanation: UITextView! = UITextView()
     
@@ -20,26 +27,33 @@ class InitialScreenView: UIView {
     let savedCardsButton = UIButton()
     let cardView = UIView()
     let todaysPicView = UIImageView()
+    let todaysPlaceHolder: LottieAnimationView = {
+        let animation = LottieAnimationView(name: "load")
+        animation.translatesAutoresizingMaskIntoConstraints = false
+        animation.loopMode = .loop
+        return animation
+    }()
     
-    // The func below adds all views and does all settings ONLY ONCE, the first time the window appears
+    // ℹ️ The func below adds all views and does all settings ONLY ONCE, the first time the window appears
     override func didMoveToWindow() {
         super.didMoveToWindow()
         
-        // Colors and visual setup
+        
+        // ℹ️ Colors and visual setup
         backgroundColor = .purple
         addViews()
     
-        // Views setup
+        // ℹ️ Views setup
         setupCardView() // calls the func declared below
         setupSavedCardsButton()
         setupTodaysPicView()
-        
         setupPicTitle()
         setupPicDate()
         setupPicExplanation()
+        setupAnimation()
     
-        // Configs
-        savedCardsButton.addTarget(self, action: #selector(buttonWasTapped), for: .touchUpInside) // Added a target, goes to the func, which is declared below, and the func calls the closure
+        // ℹ️ Configs
+        savedCardsButton.addTarget(self, action: #selector(buttonWasTapped), for: .touchUpInside) // 💡 Added a target, goes to the func, which is declared below, and the func calls the closure
     }
     
 // Use the func below in place of didMoveToWindow() when I need to use some code that needs the constraints applied
@@ -47,20 +61,45 @@ class InitialScreenView: UIView {
 //        super.layoutSubviews()
 //    }
     
+    // ℹ️ This func adds the views created to the "parent view"
     func addViews() {
-        addSubview(cardView) // adds the view created to the "father view"
+        addSubview(lottie)
+        addSubview(cardView)
         addSubview(savedCardsButton)
+        addSubview(todaysPlaceHolder)
         addSubview(todaysPicView)
         addSubview(picTitle)
         addSubview(picDate)
         addSubview(picExplanation)
     }
 
-    // This func is for setting up the "Cards View"
+    func setupAnimation() {
+        lottie.loopMode = .loop
+        lottie.frame = CGRect(x: -110, y: 0, width: 600, height: 400)
+//        lottie.frame.size = CGSize(width: 400, height: 700)
+//        lottie.anchorPoint = CGPoint(x: 0, y: 100)
+        lottie.play()
+        todaysPlaceHolder.play()
+        
+//        lottie.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            lottie.topAnchor.constraint(equalTo: self.topAnchor),
+//            lottie.leftAnchor.constraint(equalTo: self.leftAnchor),
+//            lottie.rightAnchor.constraint(equalTo: self.rightAnchor),
+//            lottie.heightAnchor.constraint(equalTo: self.heightAnchor)
+//        ])
+    }
+
+    @objc func applicationEnterInForground() {
+       
+    }
+    
+    // ℹ️ This func is for setting up the "Cards View"
     func setupCardView() {
         
         cardView.backgroundColor = .white
-        cardView.translatesAutoresizingMaskIntoConstraints = false // necessary for the constraints to work
+        cardView.translatesAutoresizingMaskIntoConstraints = false // 💡 Necessary for the constraints to work
         cardView.layer.cornerRadius = 10
         
         NSLayoutConstraint.activate([
@@ -71,26 +110,30 @@ class InitialScreenView: UIView {
         ])
     }
     
-    // This func sets up the "Daily picture View" that goes inside the card
+    // ℹ️ This func sets up the "Daily picture View" that goes inside the card
     func setupTodaysPicView(){
 
-        todaysPicView.translatesAutoresizingMaskIntoConstraints = false
-        todaysPicView.image = UIImage(systemName: "rays")
         todaysPicView.layer.cornerRadius = 10
+        todaysPicView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             todaysPicView.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 10),
             todaysPicView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
             todaysPicView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10),
-            todaysPicView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -200)
+            todaysPicView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -200),
+
+            todaysPlaceHolder.centerXAnchor.constraint(equalTo: todaysPicView.centerXAnchor),
+            todaysPlaceHolder.centerYAnchor.constraint(equalTo: todaysPicView.centerYAnchor),
+            todaysPlaceHolder.heightAnchor.constraint(equalToConstant: 150),
+            todaysPlaceHolder.widthAnchor.constraint(equalToConstant: 150 )
         ])
 
     }
     
-    // The func below configures the button to save the images. The func has to come just after the button declaration, so that these lines of code actually run
+    // ℹ️ The func below configures the button to save the images. The func has to come just after the button declaration, so that these lines of code actually run
     func setupSavePicsButton() {
         
-        ButtonForSavingImage.translatesAutoresizingMaskIntoConstraints = false // necessary for the constraints to work
+        ButtonForSavingImage.translatesAutoresizingMaskIntoConstraints = false
         ButtonForSavingImage.setImage(UIImage(systemName: "bookmark"), for: .normal)
                 
         NSLayoutConstraint.activate([
@@ -99,7 +142,7 @@ class InitialScreenView: UIView {
         ])
     }
     
-    // The func below configures the savedCardsButton. The func has to come just after the button declaration, so that these lines of code actually run
+    // ℹ️ The func below configures the savedCardsButton. The func has to come just after the button declaration, so that these lines of code actually run
     func setupSavedCardsButton() {
         
         savedCardsButton.configuration = .filled()
