@@ -125,7 +125,7 @@ class InitialScreenView: UIView {
         NSLayoutConstraint.activate([
             picTitle.topAnchor.constraint(equalTo: todaysPicView.bottomAnchor, constant: 7),
             picTitle.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
-            picTitle.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 10)
+            picTitle.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10)
         ])
     }
     
@@ -143,7 +143,8 @@ class InitialScreenView: UIView {
         NSLayoutConstraint.activate([
             picExplanation.topAnchor.constraint(equalTo: picTitle.bottomAnchor, constant: 7),
             picExplanation.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: 10),
-            picExplanation.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: 10)
+            picExplanation.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10),
+            picExplanation.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -10)
         ])
     }
     
