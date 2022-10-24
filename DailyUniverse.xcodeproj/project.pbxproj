@@ -15,6 +15,9 @@
 		1D3A72CE28F481820096DF6E /* DailyUniverseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3A72CD28F481820096DF6E /* DailyUniverseTests.swift */; };
 		1D3A72D828F481820096DF6E /* DailyUniverseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3A72D728F481820096DF6E /* DailyUniverseUITests.swift */; };
 		1D3A72DA28F481820096DF6E /* DailyUniverseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3A72D928F481820096DF6E /* DailyUniverseUITestsLaunchTests.swift */; };
+		1D68B21D2906C0440092A907 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B21C2906C0440092A907 /* API.swift */; };
+		1D68B21E2906C0440092A907 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B21C2906C0440092A907 /* API.swift */; };
+		1D68B21F2906C0440092A907 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B21C2906C0440092A907 /* API.swift */; };
 		1DEBCB6128FD838000FC4B02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1DEBCB6028FD838000FC4B02 /* Lottie */; };
 		1DEBCB6328FD888900FC4B02 /* nightSkyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */; };
 		1DEBCB6428FD888900FC4B02 /* nightSkyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */; };
@@ -61,6 +64,7 @@
 		1D3A72D328F481820096DF6E /* DailyUniverseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyUniverseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3A72D728F481820096DF6E /* DailyUniverseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUniverseUITests.swift; sourceTree = "<group>"; };
 		1D3A72D928F481820096DF6E /* DailyUniverseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUniverseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1D68B21C2906C0440092A907 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightSkyBackground.json; sourceTree = "<group>"; };
 		1DEBCB6628FD95EC00FC4B02 /* InitialScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenView.swift; sourceTree = "<group>"; };
 		1DEBCB6A28FD9BC200FC4B02 /* SavedCardsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardsScreenView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 		1D3A72B528F481810096DF6E /* DailyUniverse */ = {
 			isa = PBXGroup;
 			children = (
+				1D68B2202906C04F0092A907 /* API */,
 				1DECADBF28F99658004E62F1 /* Controller */,
 				1DECADBE28F9964C004E62F1 /* View */,
 				1DECADBD28F9963F004E62F1 /* Model */,
@@ -145,6 +150,14 @@
 				1D3A72D928F481820096DF6E /* DailyUniverseUITestsLaunchTests.swift */,
 			);
 			path = DailyUniverseUITests;
+			sourceTree = "<group>";
+		};
+		1D68B2202906C04F0092A907 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				1D68B21C2906C0440092A907 /* API.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		1DECADBD28F9963F004E62F1 /* Model */ = {
@@ -317,6 +330,7 @@
 				1DEBCB6728FD95EC00FC4B02 /* InitialScreenView.swift in Sources */,
 				1DECADC528FA1B4A004E62F1 /* SavedCardsScreenViewController.swift in Sources */,
 				1D3A72B728F481810096DF6E /* AppDelegate.swift in Sources */,
+				1D68B21D2906C0440092A907 /* API.swift in Sources */,
 				1DEBCB6F28FDD6A100FC4B02 /* Post.swift in Sources */,
 				1D3A72B928F481810096DF6E /* SceneDelegate.swift in Sources */,
 			);
@@ -326,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D68B21E2906C0440092A907 /* API.swift in Sources */,
 				1DEBCB6C28FD9BC200FC4B02 /* SavedCardsScreenView.swift in Sources */,
 				1D3A72CE28F481820096DF6E /* DailyUniverseTests.swift in Sources */,
 				1DEBCB6828FD95EC00FC4B02 /* InitialScreenView.swift in Sources */,
@@ -338,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEBCB6D28FD9BC200FC4B02 /* SavedCardsScreenView.swift in Sources */,
+				1D68B21F2906C0440092A907 /* API.swift in Sources */,
 				1D3A72D828F481820096DF6E /* DailyUniverseUITests.swift in Sources */,
 				1DEBCB6928FD95EC00FC4B02 /* InitialScreenView.swift in Sources */,
 				1D3A72DA28F481820096DF6E /* DailyUniverseUITestsLaunchTests.swift in Sources */,
