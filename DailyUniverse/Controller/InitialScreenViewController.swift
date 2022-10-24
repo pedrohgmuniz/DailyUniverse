@@ -25,6 +25,8 @@ class InitialScreenViewController: UIViewController {
         didSet { // 💡 Every time a new value gets here, the code below is run
             DispatchQueue.main.async {
                 self.contentView.todaysPicView.image = self.image
+                //Removendo o loading animation depois que a imagem chegar da API
+                self.contentView.todaysPlaceHolder.removeFromSuperview()
             }
         }
     }
@@ -38,8 +40,11 @@ class InitialScreenViewController: UIViewController {
     // ℹ️ Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad() // 💡 Does any additional setup after loading the view.
-
-        title = "Picture of the Day"
+        
+//        self.setupAnimation()
+//        NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterInForground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        title = "Picture of the Day 🔭🌌"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         contentView.didTapButton = {
@@ -56,6 +61,19 @@ class InitialScreenViewController: UIViewController {
             }
         }
         
+    }
+    
+    // funcao para voltar de outra controller ele recarregar a imagem do todaysPic <-- pode melhorar
+    override func viewWillAppear(_ animated: Bool) {
+        api.makeRequest { post in
+            self.post = post
+
+            if let url = URL(string: post.hdurl) {
+                self.api.makeRequestOfImage(url: url) { image in
+                    self.image = image
+                }
+            }
+        }
     }
     
     override func loadView() {

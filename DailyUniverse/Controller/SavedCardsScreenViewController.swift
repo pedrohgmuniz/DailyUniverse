@@ -13,7 +13,7 @@ class SavedCardsScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "My Saved Pictures"
+        title = "My Saved Pictures 💾"
         navigationController?.navigationBar.prefersLargeTitles = true
 
     }
