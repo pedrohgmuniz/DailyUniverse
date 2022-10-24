@@ -31,6 +31,8 @@ class InitialScreenViewController: UIViewController {
     
     // ℹ️ View (instance of the View here in the Controller)
     let contentView = InitialScreenView()
+    
+    // ℹ️ API (instance of the API here in the Controller)
     let api: API = API()
 
     // ℹ️ Controller Life Cycle

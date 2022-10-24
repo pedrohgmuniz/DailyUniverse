@@ -13,7 +13,7 @@ class InitialScreenView: UIView {
     
     var picTitle: UILabel! = UILabel() // Does this has to be forcefully unwrapped? What is this anyway?! 🤔
     var picDate: UILabel! = UILabel()
-    var picExplanation: UILabel! = UILabel()
+    var picExplanation: UITextView! = UITextView()
     
     let ButtonForSavingImage = UIButton()
     
@@ -115,7 +115,7 @@ class InitialScreenView: UIView {
         ])
     }
     
-    // This func configures the title of the day's picture
+    // ℹ️ This func configures the title of the day's picture
     func setupPicTitle() {
         
         picTitle.textAlignment = .center
@@ -129,16 +129,17 @@ class InitialScreenView: UIView {
         ])
     }
     
-    // This func configures the date of the day's picture as it's displayed on the app
+    // ℹ️ This func configures the date of the day's picture as it's displayed on the app
     func setupPicDate() {
         
     }
     
-    // This func configures the text with the explanation of the day's picture
+    // ℹ️ This func configures the text with the explanation of the day's picture
     func setupPicExplanation() {
         
-        picExplanation.numberOfLines = 0
+        picExplanation.font = .systemFont(ofSize: 15)
         picExplanation.translatesAutoresizingMaskIntoConstraints = false
+        picExplanation.isEditable = false
         
         NSLayoutConstraint.activate([
             picExplanation.topAnchor.constraint(equalTo: picTitle.bottomAnchor, constant: 7),
