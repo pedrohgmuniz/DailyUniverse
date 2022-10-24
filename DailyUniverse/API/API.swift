@@ -8,11 +8,8 @@
 import Foundation
 import UIKit
 
-// encapsular dentro de uma classe
-
 class API {
     
-    // ⚠️ Refactor this to be in an API layer/service
     func makeRequest(completion: @escaping (Post) -> Void) {
         let url = URL(string: "https://api.nasa.gov/planetary/apod?api_key=wecxoRe6g4DvX2KBDWxsCOQmtQJABHGjilEutoZB")!
         
@@ -27,11 +24,6 @@ class API {
                 do {
                     let post = try JSONDecoder().decode(Post.self, from: responseData)
                     completion(post)
-//                    self.post = post
-                    
-//                    if let url = URL(string: post.hdurl) {
-//                        self.makeRequestOfImage(url: url)
-//                    }
                     
                     print("objects returned: \(post)")
                 } catch let error {
@@ -43,7 +35,6 @@ class API {
         task.resume()
     }
 
-    // ⚠️ Refactor this to be in a API layer/service
     func makeRequestOfImage(url: URL, completion: @escaping (UIImage?) -> Void) {
         
         let task: URLSessionDataTask = URLSession.shared.dataTask(
