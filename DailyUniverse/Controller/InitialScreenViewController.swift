@@ -40,11 +40,12 @@ class InitialScreenViewController: UIViewController {
     // ℹ️ Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad() // 💡 Does any additional setup after loading the view.
+        setBackgroundColor()
         
 //        self.setupAnimation()
 //        NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterInForground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
-        title = "Picture of the Day 🔭🌌"
+        title = "Picture of the Day 🔭"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         contentView.didTapButton = {
@@ -63,7 +64,7 @@ class InitialScreenViewController: UIViewController {
         
     }
     
-    // funcao para voltar de outra controller ele recarregar a imagem do todaysPic <-- pode melhorar
+    // 💡 This func makes the image request from the API to run everytime the user goes to another screen and comes back <- Need to find a better solution
     override func viewWillAppear(_ animated: Bool) {
         api.makeRequest { post in
             self.post = post
@@ -85,6 +86,24 @@ class InitialScreenViewController: UIViewController {
     func goToSavedCardsScreen() {
         let secondScreen = SavedCardsScreenViewController() // 💡 This creates the view
         navigationController?.pushViewController(secondScreen, animated: true) // 💡 This takes care of the navigation
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        view.layer.sublayers?.first?.frame = view.bounds
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super
+            .traitCollectionDidChange(previousTraitCollection)
+        setBackgroundColor()
+    }
+    
+    private func setBackgroundColor() {
+        view.layer.configureGradientBackground(
+            UIColor(named: "UpGradient")!.cgColor,
+            UIColor(named: "DownGradient")!.cgColor
+        )
     }
     
 }

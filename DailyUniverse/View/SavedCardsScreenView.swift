@@ -8,11 +8,10 @@
 import UIKit
 
 class SavedCardsScreenView: UIView {
-
+    
     override func layoutSubviews() {
         super.layoutSubviews() // 💡 This calls the "parent" method
-        
-        backgroundColor = .systemCyan
+        backgroundColor = .purple
         
     }
 

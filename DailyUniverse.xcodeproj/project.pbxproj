@@ -21,9 +21,14 @@
 		1D68B2222906ECAD0092A907 /* load.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2212906ECAD0092A907 /* load.json */; };
 		1D68B2232906ECAD0092A907 /* load.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2212906ECAD0092A907 /* load.json */; };
 		1D68B2242906ECAD0092A907 /* load.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2212906ECAD0092A907 /* load.json */; };
-		1D68B2262906F5600092A907 /* starfall.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starfall.json */; };
-		1D68B2272906F5600092A907 /* starfall.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starfall.json */; };
-		1D68B2282906F5600092A907 /* starfall.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starfall.json */; };
+		1D68B2262906F5600092A907 /* starsFalling1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starsFalling1.json */; };
+		1D68B2272906F5600092A907 /* starsFalling1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starsFalling1.json */; };
+		1D68B2282906F5600092A907 /* starsFalling1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2252906F5600092A907 /* starsFalling1.json */; };
+		1D68B2B42909BEC00092A907 /* BackgroundLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B2B32909BEC00092A907 /* BackgroundLayer.swift */; };
+		1D68B2B52909BEC00092A907 /* BackgroundLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B2B32909BEC00092A907 /* BackgroundLayer.swift */; };
+		1D68B2B62909BEC00092A907 /* BackgroundLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B2B32909BEC00092A907 /* BackgroundLayer.swift */; };
+		1D68B2B8290AB76E0092A907 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B2B7290AB76E0092A907 /* Font.swift */; };
+		1D68B2BA290AFC3D0092A907 /* starfall.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2B9290AFC3D0092A907 /* starfall.json */; };
 		1DEBCB6128FD838000FC4B02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1DEBCB6028FD838000FC4B02 /* Lottie */; };
 		1DEBCB6328FD888900FC4B02 /* nightSkyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */; };
 		1DEBCB6428FD888900FC4B02 /* nightSkyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */; };
@@ -72,7 +77,10 @@
 		1D3A72D928F481820096DF6E /* DailyUniverseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUniverseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D68B21C2906C0440092A907 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		1D68B2212906ECAD0092A907 /* load.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = load.json; sourceTree = "<group>"; };
-		1D68B2252906F5600092A907 /* starfall.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starfall.json; sourceTree = "<group>"; };
+		1D68B2252906F5600092A907 /* starsFalling1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starsFalling1.json; sourceTree = "<group>"; };
+		1D68B2B32909BEC00092A907 /* BackgroundLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLayer.swift; sourceTree = "<group>"; };
+		1D68B2B7290AB76E0092A907 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		1D68B2B9290AFC3D0092A907 /* starfall.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starfall.json; sourceTree = "<group>"; };
 		1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightSkyBackground.json; sourceTree = "<group>"; };
 		1DEBCB6628FD95EC00FC4B02 /* InitialScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenView.swift; sourceTree = "<group>"; };
 		1DEBCB6A28FD9BC200FC4B02 /* SavedCardsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardsScreenView.swift; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 		1D3A72B528F481810096DF6E /* DailyUniverse */ = {
 			isa = PBXGroup;
 			children = (
+				1D68B2B22909BEB50092A907 /* Extensions */,
 				1D68B2202906C04F0092A907 /* API */,
 				1DECADBF28F99658004E62F1 /* Controller */,
 				1DECADBE28F9964C004E62F1 /* View */,
@@ -137,7 +146,8 @@
 				1D3A72B828F481810096DF6E /* SceneDelegate.swift */,
 				1D3A72BF28F481820096DF6E /* Assets.xcassets */,
 				1D68B2212906ECAD0092A907 /* load.json */,
-				1D68B2252906F5600092A907 /* starfall.json */,
+				1D68B2B9290AFC3D0092A907 /* starfall.json */,
+				1D68B2252906F5600092A907 /* starsFalling1.json */,
 				1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */,
 				1D3A72C128F481820096DF6E /* LaunchScreen.storyboard */,
 				1D3A72C428F481820096DF6E /* Info.plist */,
@@ -168,6 +178,15 @@
 				1D68B21C2906C0440092A907 /* API.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		1D68B2B22909BEB50092A907 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D68B2B32909BEC00092A907 /* BackgroundLayer.swift */,
+				1D68B2B7290AB76E0092A907 /* Font.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1DECADBD28F9963F004E62F1 /* Model */ = {
@@ -306,11 +325,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D68B2BA290AFC3D0092A907 /* starfall.json in Resources */,
 				1D3A72C328F481820096DF6E /* LaunchScreen.storyboard in Resources */,
 				1D68B2222906ECAD0092A907 /* load.json in Resources */,
 				1D3A72C028F481820096DF6E /* Assets.xcassets in Resources */,
 				1DEBCB6328FD888900FC4B02 /* nightSkyBackground.json in Resources */,
-				1D68B2262906F5600092A907 /* starfall.json in Resources */,
+				1D68B2262906F5600092A907 /* starsFalling1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +340,7 @@
 			files = (
 				1DEBCB6428FD888900FC4B02 /* nightSkyBackground.json in Resources */,
 				1D68B2232906ECAD0092A907 /* load.json in Resources */,
-				1D68B2272906F5600092A907 /* starfall.json in Resources */,
+				1D68B2272906F5600092A907 /* starsFalling1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +350,7 @@
 			files = (
 				1DEBCB6528FD888900FC4B02 /* nightSkyBackground.json in Resources */,
 				1D68B2242906ECAD0092A907 /* load.json in Resources */,
-				1D68B2282906F5600092A907 /* starfall.json in Resources */,
+				1D68B2282906F5600092A907 /* starsFalling1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,11 +363,13 @@
 			files = (
 				1DEBCB6B28FD9BC200FC4B02 /* SavedCardsScreenView.swift in Sources */,
 				1D3A72BB28F481810096DF6E /* InitialScreenViewController.swift in Sources */,
+				1D68B2B8290AB76E0092A907 /* Font.swift in Sources */,
 				1DEBCB6728FD95EC00FC4B02 /* InitialScreenView.swift in Sources */,
 				1DECADC528FA1B4A004E62F1 /* SavedCardsScreenViewController.swift in Sources */,
 				1D3A72B728F481810096DF6E /* AppDelegate.swift in Sources */,
 				1D68B21D2906C0440092A907 /* API.swift in Sources */,
 				1DEBCB6F28FDD6A100FC4B02 /* Post.swift in Sources */,
+				1D68B2B42909BEC00092A907 /* BackgroundLayer.swift in Sources */,
 				1D3A72B928F481810096DF6E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D68B21E2906C0440092A907 /* API.swift in Sources */,
+				1D68B2B52909BEC00092A907 /* BackgroundLayer.swift in Sources */,
 				1DEBCB6C28FD9BC200FC4B02 /* SavedCardsScreenView.swift in Sources */,
 				1D3A72CE28F481820096DF6E /* DailyUniverseTests.swift in Sources */,
 				1DEBCB6828FD95EC00FC4B02 /* InitialScreenView.swift in Sources */,
@@ -370,6 +393,7 @@
 			files = (
 				1DEBCB6D28FD9BC200FC4B02 /* SavedCardsScreenView.swift in Sources */,
 				1D68B21F2906C0440092A907 /* API.swift in Sources */,
+				1D68B2B62909BEC00092A907 /* BackgroundLayer.swift in Sources */,
 				1D3A72D828F481820096DF6E /* DailyUniverseUITests.swift in Sources */,
 				1DEBCB6928FD95EC00FC4B02 /* InitialScreenView.swift in Sources */,
 				1D3A72DA28F481820096DF6E /* DailyUniverseUITestsLaunchTests.swift in Sources */,

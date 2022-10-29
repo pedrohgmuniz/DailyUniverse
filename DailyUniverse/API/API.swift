@@ -16,8 +16,8 @@ class API {
         let task: URLSessionDataTask = URLSession.shared.dataTask(
             with: url,
             completionHandler: { (data, response, error) in
-                print("response: \(String(describing: response))")
-                print("error: \(String(describing: error))")
+//                print("response: \(String(describing: response))")
+//                print("error: \(String(describing: error))")
                 
                 guard let responseData = data else { return }
                 
@@ -25,7 +25,7 @@ class API {
                     let post = try JSONDecoder().decode(Post.self, from: responseData)
                     completion(post)
                     
-                    print("objects returned: \(post)")
+//                    print("objects returned: \(post)")
                 } catch let error {
                     print("error: \(error)")
                 }
