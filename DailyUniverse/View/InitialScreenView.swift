@@ -10,39 +10,26 @@ import Lottie
 
 class InitialScreenView: UIView {
     
-    let lottie: LottieAnimationView = LottieAnimationView.init(name: "starfall")
+    let telescopeLottie: LottieAnimationView = LottieAnimationView.init(name: "telescope")
+    let bigStarsBackgroundLottie: LottieAnimationView = LottieAnimationView.init(name: "bigStarsBackground")
+    
     var didTapButton: (() -> Void)?
+    var didTapSaveImageButton: (() -> Void)?
     
     var picTitle: UILabel! = UILabel() // 🤔 Does this has to be forcefully unwrapped? What is this anyway?!
     var picDate: UILabel! = UILabel()
     var picExplanation: UITextView! = UITextView()
     
-    let ButtonForSavingImage = UIButton()
+    let buttonForSavingImage = UIButton()
     
     let savedCardsButton = UIButton()
     let cardView = UIView()
     let todaysPicView = UIImageView()
-    let todaysPlaceHolder: LottieAnimationView = {
-        let animation = LottieAnimationView(name: "load")
-        animation.translatesAutoresizingMaskIntoConstraints = false
-        animation.loopMode = .loop
-        return animation
-    }()
-    
-    // Code for creating a standard loading animation and stop using a lottie (I'll do this later)
-    //    let userActiviyt: UIActivityIndicatorView = {
-    //        let loading = UIActivityIndicatorView()
-    //        loading.style = .medium
-    //        loading.startAnimating()
-    //        loading.translatesAutoresizingMaskIntoConstraints = false
-    //
-    //        return loading
-    //    }()
+    let todaysPicLoadingLottie: LottieAnimationView = LottieAnimationView.init(name: "load")
     
     // ℹ️ The func below adds all views and does all settings ONLY ONCE, the first time the window appears
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        
         
         // ℹ️ Colors and visual setup
         addViews()
@@ -54,36 +41,57 @@ class InitialScreenView: UIView {
         setupPicTitle()
         setupPicDate()
         setupPicExplanation()
-        setupAnimation()
-        setupButtonForSavingImage()
+        setupbigStarsBackgroundLottie()
+        setuptelescopeLottie()
+        setupbuttonForSavingImage()
+        setuptodaysPicLoadingLottie()
     
         // ℹ️ Configs
+        
+        buttonForSavingImage
+     .addTarget(self, action: #selector(saveImageButtonWasTapped), for: .touchUpInside)
+        
         savedCardsButton.addTarget(self, action: #selector(buttonWasTapped), for: .touchUpInside) // 💡 Added a target, goes to the func, which is declared below, and the func calls the closure
     }
     
-// Use the func below in place of didMoveToWindow() when I need to use some code that needs the constraints applied
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//    }
-    
     // ℹ️ This func adds the views created to the "parent view"
     func addViews() {
-        addSubview(lottie)
+        addSubview(bigStarsBackgroundLottie)
         addSubview(cardView)
         addSubview(savedCardsButton)
         addSubview(picDate)
-        addSubview(todaysPlaceHolder)
+        addSubview(todaysPicLoadingLottie)
         addSubview(todaysPicView)
         addSubview(picTitle)
-        addSubview(ButtonForSavingImage)
+        addSubview(buttonForSavingImage)
         addSubview(picExplanation)
+        addSubview(telescopeLottie)
     }
 
-    func setupAnimation() {
-        lottie.loopMode = .loop
-        lottie.frame = CGRect(x: -110, y: 0, width: 600, height: 400)
-        lottie.play()
-        todaysPlaceHolder.play()
+    func setuptelescopeLottie() {
+//        telescopeLottie.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        telescopeLottie.play()
+        telescopeLottie.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            telescopeLottie.heightAnchor.constraint(equalToConstant: 200),
+            telescopeLottie.widthAnchor.constraint(equalToConstant: 200),
+            telescopeLottie.bottomAnchor.constraint(equalTo: cardView.topAnchor, constant: 50),
+            telescopeLottie.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 50)
+        ])
+    }
+    
+    func setuptodaysPicLoadingLottie() {
+        todaysPicLoadingLottie.play()
+        todaysPicLoadingLottie.translatesAutoresizingMaskIntoConstraints = false
+        todaysPicLoadingLottie.loopMode = .loop
+    }
+    
+    func setupbigStarsBackgroundLottie() {
+        bigStarsBackgroundLottie.frame = CGRect(x: -30, y: 40, width: 500, height: 800)
+        bigStarsBackgroundLottie.play()
+        bigStarsBackgroundLottie.animationSpeed = 1 // This doesn't do anythin right now
+        //        bigStarsBackgroundLottie.loopMode = .autoReverse // This doesn't do anythin right now
     }
 
     @objc func applicationEnterInForground() {
@@ -94,6 +102,10 @@ class InitialScreenView: UIView {
     func setupCardView() {
         
         cardView.backgroundColor = UIColor(named: "CardColor")
+        cardView.layer.shadowColor = UIColor.gray.cgColor
+        cardView.layer.shadowOpacity = 0.5
+        cardView.layer.shadowOffset = .zero
+        cardView.layer.shadowRadius = 10
         cardView.translatesAutoresizingMaskIntoConstraints = false // 💡 Necessary for the constraints to work
         cardView.layer.cornerRadius = 10
         
@@ -117,25 +129,32 @@ class InitialScreenView: UIView {
             todaysPicView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -10),
             todaysPicView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -220),
 
-            todaysPlaceHolder.centerXAnchor.constraint(equalTo: todaysPicView.centerXAnchor),
-            todaysPlaceHolder.centerYAnchor.constraint(equalTo: todaysPicView.centerYAnchor),
-            todaysPlaceHolder.heightAnchor.constraint(equalToConstant: 150),
-            todaysPlaceHolder.widthAnchor.constraint(equalToConstant: 150 )
+            todaysPicLoadingLottie.centerXAnchor.constraint(equalTo: todaysPicView.centerXAnchor),
+            todaysPicLoadingLottie.centerYAnchor.constraint(equalTo: todaysPicView.centerYAnchor),
+            todaysPicLoadingLottie.heightAnchor.constraint(equalToConstant: 150),
+            todaysPicLoadingLottie.widthAnchor.constraint(equalToConstant: 150)
         ])
 
     }
     
     // ℹ️ The func below configures the button to save the images. The func has to come just after the button declaration, so that these lines of code actually run
-    func setupButtonForSavingImage() {
+    func setupbuttonForSavingImage () {
         
-        ButtonForSavingImage.translatesAutoresizingMaskIntoConstraints = false
-        ButtonForSavingImage.setImage(UIImage(systemName: "bookmark"), for: .normal)
-//        ButtonForSavingImage.imageView?.tintColor = .white
-//        ButtonForSavingImage.imageView?.largeContentTitle = "Save Card"
+        let config = UIImage.SymbolConfiguration(
+            pointSize: 24, weight: .medium, scale: .default)
+        let buttonImage = UIImage(systemName: "bookmark", withConfiguration: config)
+        buttonForSavingImage
+     .translatesAutoresizingMaskIntoConstraints = false
+        buttonForSavingImage
+     .setImage(buttonImage, for: .normal)
+//        buttonForSavingImage.imageView?.tintColor = .white
+//        buttonForSavingImage.imageView?.largeContentTitle = "Save Card"
                 
         NSLayoutConstraint.activate([
-            ButtonForSavingImage.topAnchor.constraint(equalTo: todaysPicView.bottomAnchor, constant: 8),
-            ButtonForSavingImage.leadingAnchor.constraint(equalTo: todaysPicView.trailingAnchor, constant: -25)
+            buttonForSavingImage
+         .topAnchor.constraint(equalTo: todaysPicView.bottomAnchor, constant: 6),
+            buttonForSavingImage
+         .leadingAnchor.constraint(equalTo: todaysPicView.trailingAnchor, constant: -25)
         ])
     }
     
@@ -146,7 +165,12 @@ class InitialScreenView: UIView {
         savedCardsButton.configuration?.baseBackgroundColor = UIColor(named: "ButtonColor")
         savedCardsButton.setTitle("Go to my saved pics", for: .normal)
         savedCardsButton.setTitleColor(picTitle.textColor, for: .normal)
-        savedCardsButton.translatesAutoresizingMaskIntoConstraints = false // necessary for the constraints to work
+        savedCardsButton.translatesAutoresizingMaskIntoConstraints = false // 💡 Necessary for the constraints to work
+        // 👨‍💻 In case I want shadow behind the button, uncomment the following lines:
+//        savedCardsButton.layer.shadowColor = UIColor.systemGray.cgColor
+//        savedCardsButton.layer.shadowOpacity = 0.5
+//        savedCardsButton.layer.shadowOffset = .zero
+//        savedCardsButton.layer.shadowRadius = 10
                 
         NSLayoutConstraint.activate([
             savedCardsButton.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -190,9 +214,36 @@ class InitialScreenView: UIView {
         ])
     }
     
+    @objc func saveImageButtonWasTapped() {
+        didTapSaveImageButton?()
+    }
+    
     @objc func buttonWasTapped() {
         didTapButton?()
     }
+    
+    // 👨‍💻 Piece of code for creating a Lottie Animation in a different way than the one used in this project:
+//    let todaysPlaceHolder: LottieAnimationView = {
+//        let animation = LottieAnimationView(name: "load")
+//        animation.translatesAutoresizingMaskIntoConstraints = false
+//        animation.loopMode = .loop
+//        return animation
+//    }()
+    
+    // 👨‍💻 Piece of code for creating a standard loading animation and stop using a lottie (I'll do this later)
+//    let userActiviyt: UIActivityIndicatorView = {
+//        let loading = UIActivityIndicatorView()
+//        loading.style = .medium
+//        loading.startAnimating()
+//        loading.translatesAutoresizingMaskIntoConstraints = false
+//
+//        return loading
+//    }()
+    
+    // 👨‍💻 Use the func below in place of didMoveToWindow() when I need to use some code that needs the constraints applied
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//    }
 
 }
 

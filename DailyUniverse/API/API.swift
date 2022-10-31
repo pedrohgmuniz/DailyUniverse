@@ -10,6 +10,13 @@ import UIKit
 
 class API {
     
+    //    let urlVideoOrImage = media_type
+
+    //enum VideoOrImage: String, Codable {
+    //    case video
+    //    case image
+    //}
+    
     func makeRequest(completion: @escaping (Post) -> Void) {
         let url = URL(string: "https://api.nasa.gov/planetary/apod?api_key=wecxoRe6g4DvX2KBDWxsCOQmtQJABHGjilEutoZB")!
         

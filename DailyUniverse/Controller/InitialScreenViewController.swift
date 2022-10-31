@@ -26,7 +26,7 @@ class InitialScreenViewController: UIViewController {
             DispatchQueue.main.async {
                 self.contentView.todaysPicView.image = self.image
                 //Removendo o loading animation depois que a imagem chegar da API
-                self.contentView.todaysPlaceHolder.removeFromSuperview()
+                self.contentView.todaysPicLoadingLottie.removeFromSuperview()
             }
         }
     }
@@ -45,7 +45,7 @@ class InitialScreenViewController: UIViewController {
 //        self.setupAnimation()
 //        NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterInForground), name: UIApplication.willEnterForegroundNotification, object: nil)
         
-        title = "Picture of the Day 🔭"
+        title = "Picture of the Day"
         navigationController?.navigationBar.prefersLargeTitles = true
         
         contentView.didTapButton = {
@@ -55,10 +55,14 @@ class InitialScreenViewController: UIViewController {
         api.makeRequest { post in
             self.post = post
             
-            if let url = URL(string: post.hdurl) {
-                self.api.makeRequestOfImage(url: url) { image in
-                    self.image = image
+            if post.media_type == "image" {
+                if let url = URL(string: post.hdurl) {
+                    self.api.makeRequestOfImage(url: url) { image in
+                        self.image = image
+                    }
                 }
+            } else {
+                // what the video does
             }
         }
         
@@ -88,6 +92,7 @@ class InitialScreenViewController: UIViewController {
         navigationController?.pushViewController(secondScreen, animated: true) // 💡 This takes care of the navigation
     }
     
+    // ℹ️ Functions for taking care of the degrade background
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         view.layer.sublayers?.first?.frame = view.bounds
