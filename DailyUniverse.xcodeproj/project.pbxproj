@@ -29,6 +29,10 @@
 		1D68B2B62909BEC00092A907 /* BackgroundLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B2B32909BEC00092A907 /* BackgroundLayer.swift */; };
 		1D68B2B8290AB76E0092A907 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68B2B7290AB76E0092A907 /* Font.swift */; };
 		1D68B2BA290AFC3D0092A907 /* starfall.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2B9290AFC3D0092A907 /* starfall.json */; };
+		1D68B2BE290F7ACB0092A907 /* starryBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2BD290F7ACB0092A907 /* starryBackground.json */; };
+		1D68B2C0291016D30092A907 /* littleSpaceShip.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2BF291016D30092A907 /* littleSpaceShip.json */; };
+		1D68B2C2291016DB0092A907 /* telescope.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2C1291016DB0092A907 /* telescope.json */; };
+		1D68B2C6291045880092A907 /* bigStarsBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D68B2C5291045880092A907 /* bigStarsBackground.json */; };
 		1DEBCB6128FD838000FC4B02 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 1DEBCB6028FD838000FC4B02 /* Lottie */; };
 		1DEBCB6328FD888900FC4B02 /* nightSkyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */; };
 		1DEBCB6428FD888900FC4B02 /* nightSkyBackground.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */; };
@@ -81,6 +85,10 @@
 		1D68B2B32909BEC00092A907 /* BackgroundLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLayer.swift; sourceTree = "<group>"; };
 		1D68B2B7290AB76E0092A907 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		1D68B2B9290AFC3D0092A907 /* starfall.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starfall.json; sourceTree = "<group>"; };
+		1D68B2BD290F7ACB0092A907 /* starryBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = starryBackground.json; sourceTree = "<group>"; };
+		1D68B2BF291016D30092A907 /* littleSpaceShip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = littleSpaceShip.json; sourceTree = "<group>"; };
+		1D68B2C1291016DB0092A907 /* telescope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = telescope.json; sourceTree = "<group>"; };
+		1D68B2C5291045880092A907 /* bigStarsBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bigStarsBackground.json; sourceTree = "<group>"; };
 		1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nightSkyBackground.json; sourceTree = "<group>"; };
 		1DEBCB6628FD95EC00FC4B02 /* InitialScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScreenView.swift; sourceTree = "<group>"; };
 		1DEBCB6A28FD9BC200FC4B02 /* SavedCardsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCardsScreenView.swift; sourceTree = "<group>"; };
@@ -147,7 +155,11 @@
 				1D3A72BF28F481820096DF6E /* Assets.xcassets */,
 				1D68B2212906ECAD0092A907 /* load.json */,
 				1D68B2B9290AFC3D0092A907 /* starfall.json */,
+				1D68B2C5291045880092A907 /* bigStarsBackground.json */,
+				1D68B2BD290F7ACB0092A907 /* starryBackground.json */,
 				1D68B2252906F5600092A907 /* starsFalling1.json */,
+				1D68B2BF291016D30092A907 /* littleSpaceShip.json */,
+				1D68B2C1291016DB0092A907 /* telescope.json */,
 				1DEBCB6228FD888900FC4B02 /* nightSkyBackground.json */,
 				1D3A72C128F481820096DF6E /* LaunchScreen.storyboard */,
 				1D3A72C428F481820096DF6E /* Info.plist */,
@@ -325,7 +337,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D68B2C2291016DB0092A907 /* telescope.json in Resources */,
 				1D68B2BA290AFC3D0092A907 /* starfall.json in Resources */,
+				1D68B2C6291045880092A907 /* bigStarsBackground.json in Resources */,
+				1D68B2BE290F7ACB0092A907 /* starryBackground.json in Resources */,
+				1D68B2C0291016D30092A907 /* littleSpaceShip.json in Resources */,
 				1D3A72C328F481820096DF6E /* LaunchScreen.storyboard in Resources */,
 				1D68B2222906ECAD0092A907 /* load.json in Resources */,
 				1D3A72C028F481820096DF6E /* Assets.xcassets in Resources */,
