@@ -8,6 +8,7 @@
 import UIKit
 import Lottie
 
+// 💡 The ViewController is responsible for navigation and business logic (i.e. the logic for manipulating data)
 class InitialScreenViewController: UIViewController {
     
     // ℹ️ Model (instance of the Model struct here in the Controller)
@@ -33,6 +34,7 @@ class InitialScreenViewController: UIViewController {
     
     // ℹ️ View (instance of the View here in the Controller)
     let contentView = InitialScreenView()
+    let video = InitialScreenView().videoOfTheDay
     
     // ℹ️ API (instance of the API here in the Controller)
     let api: API = API()
@@ -52,28 +54,31 @@ class InitialScreenViewController: UIViewController {
             self.goToSavedCardsScreen()
         }
         
-        api.makeRequest { post in
+        api.makeRequest { [self] post in
             self.post = post
             
             if post.media_type == "image" {
-                if let url = URL(string: post.hdurl) {
+                if let url = URL(string: post.url) {
                     self.api.makeRequestOfImage(url: url) { image in
                         self.image = image
                     }
                 }
             } else {
-                // what the video does
+                if let url = URL(string: post.url) {
+                    let youtubeRequest = URLRequest(url: url)
+                    video.load(youtubeRequest)
+                }
             }
         }
         
     }
     
-    // 💡 This func makes the image request from the API to run everytime the user goes to another screen and comes back <- Need to find a better solution
+    // 💡 This func makes the image request from the API to run everytime the user goes to another screen and comes back <- Gotta find a better solution for this
     override func viewWillAppear(_ animated: Bool) {
         api.makeRequest { post in
             self.post = post
 
-            if let url = URL(string: post.hdurl) {
+            if let url = URL(string: post.url) {
                 self.api.makeRequestOfImage(url: url) { image in
                     self.image = image
                 }
